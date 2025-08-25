@@ -53,7 +53,7 @@ const updateBook = async (req, res) => {
   const book = await Book.findById(req.params.id);
 
   if (book) {
-    // Ensure the logged-in user is the owner of the book
+    // to ensure the loggedin user is the owner of the book
     if (book.user.toString() !== req.user.id) {
       res.status(401).json({ message: 'Not authorized to update this book' });
       return;
@@ -79,7 +79,7 @@ const deleteBook = async (req, res) => {
   const book = await Book.findById(req.params.id);
 
   if (book) {
-    // Ensure the logged-in user is the owner of the book
+    // make sure that the logged-in user is the owner of the book
     if (book.user.toString() !== req.user.id) {
       res.status(401).json({ message: 'Not authorized to delete this book' });
       return;
